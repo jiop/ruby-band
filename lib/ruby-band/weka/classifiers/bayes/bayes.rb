@@ -10,6 +10,7 @@ module Weka
       java_import "weka.classifiers.bayes.AODE"
       java_import "weka.classifiers.bayes.ComplementNaiveBayes"
       java_import "weka.classifiers.bayes.WAODE"
+      java_import "weka.classifiers.bayes.NaiveBayesMultinomial"
 
       class NaiveBayes
         include Bayes_utils
@@ -19,7 +20,7 @@ module Weka
             if block_given?
               init_instance_classifier(&block)
             else
-              init_classifier  
+              init_classifier
             end
           end
         end
@@ -33,7 +34,7 @@ module Weka
             if block_given?
               init_instance_classifier(&block)
             else
-              init_classifier  
+              init_classifier
             end
           end
         end
@@ -47,7 +48,7 @@ module Weka
             if block_given?
               init_instance_classifier(&block)
             else
-              init_classifier  
+              init_classifier
             end
           end
         end
@@ -61,7 +62,7 @@ module Weka
             if block_given?
               init_instance_classifier(&block)
             else
-              init_classifier  
+              init_classifier
             end
           end
         end
@@ -75,7 +76,21 @@ module Weka
             if block_given?
               init_instance_classifier(&block)
             else
-              init_classifier  
+              init_classifier
+            end
+          end
+        end
+      end
+
+      class NaiveBayesMultinomial
+        include Bayes_utils
+        class Base < NaiveBayesMultinomial
+          def initialize(&block)
+            super
+            if block_given?
+              init_instance_classifier(&block)
+            else
+              init_classifier
             end
           end
         end
