@@ -23,8 +23,6 @@ Gem::Specification.new do |s|
     ".travis.yml",
     "Gemfile",
     "Gemfile.lock",
-    "Jarfile",
-    "Jarfile.lock",
     "LICENSE.txt",
     "README.md",
     "README.rdoc",
@@ -174,5 +172,16 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<cucumber>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 0"])
   end
+  s.requirements << "jar org.sonatype.aether:aether-api, 1.1"
+  s.requirements << "jar nz.ac.waikato.cms.weka:weka-stable, 3.6.10"
+  s.requirements << "jar org.apache.commons:commons-math3, 3.0"
+  s.requirements << "jar junit:junit, 3.8.1"
+  s.requirements << "jar mysql:mysql-connectr-java, 5.1.6"
+  s.requirements << "jar postgresql:postgresl, 9.1-901.jdbc4"
+  s.requirements << "jar org.xerial:sqlite-jbc, 3.7.2"
+  s.requirements << "jar hsqldb:hsqldb, 1.8.0.7"
+  s.requirements << "jar idb:idb, 3.26"
+  s.requirements << "jar mckoi:mckoi, 0.93"
+
 end
 
