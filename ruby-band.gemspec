@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "ruby-band"
-  s.version = "0.1.11"
+  s.version = "0.1.11.dimelo"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["arrigonialberto86"]
@@ -19,169 +19,50 @@ Gem::Specification.new do |s|
     "README.md",
     "README.rdoc"
   ]
-  s.files = [
-    ".travis.yml",
-    "Gemfile",
-    "Gemfile.lock",
-    "LICENSE.txt",
-    "README.md",
-    "README.rdoc",
-    "Rakefile",
-    "VERSION",
-    "band_server/client.rb",
-    "band_server/client_alt.rb",
-    "band_server/first_dataset.csv",
-    "band_server/second_dataset.csv",
-    "band_server/simple_server.rb",
-    "band_server/third_dataset.csv",
-    "band_server/uploads/first_dataset.csv",
-    "band_server/uploads/second_dataset.csv",
-    "band_server/uploads/third_dataset.csv",
-    "bin/ruby-band",
-    "ext/mkrf_conf.rb",
-    "features/create_dataset.feature",
-    "features/step_definitions/create_dataset.rb",
-    "features/step_definitions/weka_classifiers.rb",
-    "features/step_definitions/weka_clustering.rb",
-    "features/step_definitions/weka_filters.rb",
-    "features/step_definitions/weka_parsers.rb",
-    "features/step_definitions/weka_pipeline.rb",
-    "features/support/env.rb",
-    "features/weka_classifiers.feature",
-    "features/weka_clustering.feature",
-    "features/weka_filters.feature",
-    "features/weka_parsers.feature",
-    "features/weka_pipeline.feature",
-    "lib/ruby-band.rb",
-    "lib/ruby-band/apache.rb",
-    "lib/ruby-band/apache/stat/correlation.rb",
-    "lib/ruby-band/apache/stat/inference.rb",
-    "lib/ruby-band/apache/stat/regression.rb",
-    "lib/ruby-band/core.rb",
-    "lib/ruby-band/core/parser/parser.rb",
-    "lib/ruby-band/core/type/apache_matrices.rb",
-    "lib/ruby-band/core/type/attribute.rb",
-    "lib/ruby-band/core/type/instance.rb",
-    "lib/ruby-band/core/type/instances.rb",
-    "lib/ruby-band/core/type/utils.rb",
-    "lib/ruby-band/weka.rb",
-    "lib/ruby-band/weka/attribute_selection/attribute_selection_utils.rb",
-    "lib/ruby-band/weka/attribute_selection/evaluators.rb",
-    "lib/ruby-band/weka/attribute_selection/search.rb",
-    "lib/ruby-band/weka/classifiers/bayes/bayes.rb",
-    "lib/ruby-band/weka/classifiers/bayes/bayes_utils.rb",
-    "lib/ruby-band/weka/classifiers/evaluation.rb",
-    "lib/ruby-band/weka/classifiers/functions/functions.rb",
-    "lib/ruby-band/weka/classifiers/functions/functions_utils.rb",
-    "lib/ruby-band/weka/classifiers/lazy/lazy.rb",
-    "lib/ruby-band/weka/classifiers/lazy/lazy_utils.rb",
-    "lib/ruby-band/weka/classifiers/mi/mi.rb",
-    "lib/ruby-band/weka/classifiers/mi/mi_utils.rb",
-    "lib/ruby-band/weka/classifiers/rules/rules.rb",
-    "lib/ruby-band/weka/classifiers/rules/rules_utils.rb",
-    "lib/ruby-band/weka/classifiers/trees/trees.rb",
-    "lib/ruby-band/weka/classifiers/trees/trees_utils.rb",
-    "lib/ruby-band/weka/clusterers/clusterers.rb",
-    "lib/ruby-band/weka/clusterers/clusterers_utils.rb",
-    "lib/ruby-band/weka/db/DatabaseUtils_mysql",
-    "lib/ruby-band/weka/db/DatabaseUtils_postgresql",
-    "lib/ruby-band/weka/db/db.rb",
-    "lib/ruby-band/weka/filters/supervised/attribute/attribute.rb",
-    "lib/ruby-band/weka/filters/supervised/instance/instance.rb",
-    "lib/ruby-band/weka/filters/supervised/supervised_utils.rb",
-    "lib/ruby-band/weka/filters/unsupervised/attribute/attribute.rb",
-    "lib/ruby-band/weka/filters/unsupervised/instance/instance.rb",
-    "lib/ruby-band/weka/filters/unsupervised/unsupervised_utils.rb",
-    "resources/ReutersGrain-test.arff",
-    "resources/ReutersGrain-train.arff",
-    "resources/weather.csv",
-    "resources/weather.numeric.arff",
-    "ruby-band.gemspec",
-    "spec/ruby-band_spec.rb",
-    "spec/spec_helper.rb",
-    "test/helper.rb",
-    "test/test_apacheCorrelation.rb",
-    "test/test_apacheInference.rb",
-    "test/test_ruby-band.rb"
-  ]
+
+  ignores  = File.readlines('.gitignore').grep(/\S+/).map(&:chomp)
+  ignores.concat %w(spec/* test/*)
+  dotfiles = %w[.gitignore .travis.yml .ruby-version]
+
+  all_files_without_ignores = Dir['**/*'].reject { |f|
+    File.directory?(f) || ignores.any? { |i| File.fnmatch(i, f) }
+  }
+
+  s.files = (all_files_without_ignores + dotfiles).sort
+
   s.homepage = "http://github.com/arrigonialberto86/ruby-band"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.25"
   s.summary = "Data mining algorithms for JRuby"
 
-  if s.respond_to? :specification_version then
-    s.specification_version = 3
+  s.add_runtime_dependency "i18n", ">= 0.6.1"
+  s.add_runtime_dependency "activesupport", ">= 3.2.13"
+  s.add_runtime_dependency "rake"
+  # s.add_runtime_dependency "bio", ">= 1.4.2"
+  s.add_runtime_dependency "jbundler", ">= 0.4.3"
+  # s.add_runtime_dependency "ruport"
+  s.add_runtime_dependency "json"
+  s.add_runtime_dependency "multi_json",">= 1.8.0"
+  s.add_runtime_dependency "gherkin"
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<i18n>, [">= 0.6.1"])
-      s.add_runtime_dependency(%q<activesupport>, [">= 3.2.13"])
-      s.add_runtime_dependency(%q<rake>, [">= 0"])
-      s.add_runtime_dependency(%q<bio>, [">= 1.4.2"])
-      s.add_runtime_dependency(%q<jbundler>, [">= 0.4.3"])
-      s.add_runtime_dependency(%q<ruport>, [">= 0"])
-      s.add_runtime_dependency(%q<json>, [">= 0"])
-      s.add_runtime_dependency(%q<multi_json>, [">= 1.8.0"])
-      s.add_runtime_dependency(%q<gherkin>, [">= 0"])
-      s.add_runtime_dependency(%q<git>, [">= 0"])
-      s.add_runtime_dependency(%q<shoulda>, [">= 0"])
-      s.add_runtime_dependency(%q<test-unit>, [">= 0"])
-      s.add_runtime_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_runtime_dependency(%q<bundler>, [">= 1.3.5"])
-      s.add_runtime_dependency(%q<jeweler>, ["~> 1.8.4"])
-      s.add_runtime_dependency(%q<simplecov>, [">= 0"])
-      s.add_runtime_dependency(%q<cucumber>, [">= 0"])
-      s.add_runtime_dependency(%q<rspec>, [">= 0"])
-    else
-      s.add_dependency(%q<i18n>, [">= 0.6.1"])
-      s.add_dependency(%q<activesupport>, [">= 3.2.13"])
-      s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<bio>, [">= 1.4.2"])
-      s.add_dependency(%q<jbundler>, [">= 0.4.3"])
-      s.add_dependency(%q<ruport>, [">= 0"])
-      s.add_dependency(%q<json>, [">= 0"])
-      s.add_dependency(%q<multi_json>, [">= 1.8.0"])
-      s.add_dependency(%q<gherkin>, [">= 0"])
-      s.add_dependency(%q<git>, [">= 0"])
-      s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<test-unit>, [">= 0"])
-      s.add_dependency(%q<rdoc>, ["~> 3.12"])
-      s.add_dependency(%q<bundler>, [">= 1.3.5"])
-      s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
-      s.add_dependency(%q<simplecov>, [">= 0"])
-      s.add_dependency(%q<cucumber>, [">= 0"])
-      s.add_dependency(%q<rspec>, [">= 0"])
-    end
-  else
-    s.add_dependency(%q<i18n>, [">= 0.6.1"])
-    s.add_dependency(%q<activesupport>, [">= 3.2.13"])
-    s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<bio>, [">= 1.4.2"])
-    s.add_dependency(%q<jbundler>, [">= 0.4.3"])
-    s.add_dependency(%q<ruport>, [">= 0"])
-    s.add_dependency(%q<json>, [">= 0"])
-    s.add_dependency(%q<multi_json>, [">= 1.8.0"])
-    s.add_dependency(%q<gherkin>, [">= 0"])
-    s.add_dependency(%q<git>, [">= 0"])
-    s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<test-unit>, [">= 0"])
-    s.add_dependency(%q<rdoc>, ["~> 3.12"])
-    s.add_dependency(%q<bundler>, [">= 1.3.5"])
-    s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
-    s.add_dependency(%q<simplecov>, [">= 0"])
-    s.add_dependency(%q<cucumber>, [">= 0"])
-    s.add_dependency(%q<rspec>, [">= 0"])
-  end
-  s.requirements << "jar org.sonatype.aether:aether-api, 1.1"
+  s.add_development_dependency "shoulda", ">= 0"
+  s.add_development_dependency "test-unit", ">= 0"
+  s.add_development_dependency "rdoc", "~> 3.12"
+  s.add_development_dependency "simplecov", ">= 0"
+  s.add_development_dependency "cucumber"
+  s.add_development_dependency "rspec"
+
+  # s.requirements << "jar org.sonatype.aether:aether-api, 1.1"
   s.requirements << "jar nz.ac.waikato.cms.weka:weka-stable, 3.6.10"
   s.requirements << "jar org.apache.commons:commons-math3, 3.0"
-  s.requirements << "jar junit:junit, 3.8.1"
-  s.requirements << "jar mysql:mysql-connectr-java, 5.1.6"
-  s.requirements << "jar postgresql:postgresl, 9.1-901.jdbc4"
-  s.requirements << "jar org.xerial:sqlite-jbc, 3.7.2"
-  s.requirements << "jar hsqldb:hsqldb, 1.8.0.7"
-  s.requirements << "jar idb:idb, 3.26"
-  s.requirements << "jar mckoi:mckoi, 0.93"
+  # s.requirements << "jar junit:junit, 3.8.1"
+  # s.requirements << "jar mysql:mysql-connectr-java, 5.1.6"
+  # s.requirements << "jar postgresql:postgresl, 9.1-901.jdbc4"
+  # s.requirements << "jar org.xerial:sqlite-jbc, 3.7.2"
+  # s.requirements << "jar hsqldb:hsqldb, 1.8.0.7"
+  # s.requirements << "jar idb:idb, 3.26"
+  # s.requirements << "jar mckoi:mckoi, 0.93"
 
 end
 

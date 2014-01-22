@@ -1,12 +1,12 @@
 require 'java'
-require 'ruport'
+# require 'ruport'
 require 'json'
 
 module Core
 
   java_import "weka.core.SerializationHelper"
   module Type
-    
+
     java_import "weka.core.Instances"
     java_import 'java.io.File'
     java_import 'weka.core.converters.CSVSaver'
@@ -18,7 +18,7 @@ module Core
     # * *Description*    :
     # This is the main class from the Weka package for data handling. It is essentially a matrix: each row
     # is an instance of the 'Instance' class, while each column is an instance of the 'Attribute' class
-    # The class 'Instances' is here extended to add custom functionalities 
+    # The class 'Instances' is here extended to add custom functionalities
     class Instances
 
       # Convert an Instances object to a bidimensional Ruby array
@@ -27,7 +27,7 @@ module Core
         matrix = Array.new
         att = Array.new
         self.enumerateAttributes.each_with_index do |a,idx|
-          if a.isNumeric  
+          if a.isNumeric
             enumerate_instances.each {|s| att << s.value(s.attribute(idx))}
             matrix << att
             att = Array.new
@@ -83,7 +83,7 @@ module Core
       end
 
       # Convert the present Instances object to an Apache matrix if every Instances attribute
-      # is Numeric 
+      # is Numeric
       def to_Apache_matrix
         check_numeric_instance
         ruby_array = to_a
@@ -92,7 +92,7 @@ module Core
       end
 
       # Convert the present Instances object to an Apache matrix (block) if every Instances attribute
-      # is Numeric 
+      # is Numeric
       def to_Apache_matrix_block
         check_numeric_instance
         ruby_array = to_a
@@ -120,8 +120,8 @@ module Core
 
       # Return the mean value of a single attribute (a column from the Instances object)
       # * *Args*    :
-      #   - +attribute_name+ -> a String, the name of the attribute      
-      def mean(attribute_name) 
+      #   - +attribute_name+ -> a String, the name of the attribute
+      def mean(attribute_name)
         sum = enumerateInstances.inject(0) do |s,x|
           s+=x.value(attribute(attribute_name))
         end
@@ -130,16 +130,16 @@ module Core
 
       # Return the variance of a single attribute (a column from the Instances object)
       # * *Args*    :
-      #   - +attribute_name+ -> a String, the name of the attribute    
-      def variance(attribute_name) 
+      #   - +attribute_name+ -> a String, the name of the attribute
+      def variance(attribute_name)
         enumerateAttributes.each_with_idx do |att,idx|
           return variance(idx) if att.name==attribute_name
         end
-      end      
+      end
 
       # Write the content of the current Instances object to a .csv file
       # * *Args*    :
-      #   - +out_file+ -> a String, the name of the output file  
+      #   - +out_file+ -> a String, the name of the output file
       def to_CSV(out_file)
         saver = CSVSaver.new
         saver.setInstances(self)
@@ -150,7 +150,7 @@ module Core
 
       # Write the content of the current Instances object to a .arff file
       # * *Args*    :
-      #   - +out_file+ -> a String, the name of the output file 
+      #   - +out_file+ -> a String, the name of the output file
       def to_ARFF(out_file)
         saver = ArffSaver.new
         saver.setInstances(self)
@@ -181,10 +181,10 @@ module Core
         return true # still to be done
       end
 
-      # An entire dataset is inserted 'by row' into the current Instances object 
+      # An entire dataset is inserted 'by row' into the current Instances object
       # i.e. one Instance object is inserted at the time
       # * *Args*    :
-      #   - +data+ -> a bidimensional array 
+      #   - +data+ -> a bidimensional array
       def populate_by_row(data)
         unless check_array(data) == false
           data.each do |row|
@@ -193,7 +193,7 @@ module Core
         end
       end
 
-      # An Instance instance object (one row) is inserted into the current Instances object 
+      # An Instance instance object (one row) is inserted into the current Instances object
       # * *Args*    :
       #   - +instance+ -> an array of values of the correct data type (:nominal,:numeric,etc...)
       def add_instance(instance)
@@ -206,7 +206,7 @@ module Core
         self.add(single_row)
       end
 
-      # An Attribute instance object is inserted into the current Instances object  
+      # An Attribute instance object is inserted into the current Instances object
       # * *Args*    :
       #   - +attribute_name+ -> A name for the new attribute
       # * *WARNING*    :
@@ -215,53 +215,53 @@ module Core
         insertAttributeAt(Attribute.new(attribute_name), self.numAttributes)
       end
 
-      # An Attribute instance object is inserted into the current Instances object  
+      # An Attribute instance object is inserted into the current Instances object
       # * *Args*    :
       #   - +attribute_name+ -> A name for the new attribute
-      #   - +values+ -> RubyArray with nominal values 
+      #   - +values+ -> RubyArray with nominal values
       # * *WARNING*    :
       # This method only creates an empty attribute field
       def add_nominal_attribute(attribute,list_values)
         values = FastVector.new
         list_values.each do |val|
-          values.addElement(val)         
+          values.addElement(val)
         end
         insertAttributeAt(Attribute.new(attribute, values), self.numAttributes)
-      end      
+      end
 
       #Print to STDOUT the list of the Instances's attributes (with the corresponding types)
-      def summary
-        summary = Ruport::Data::Table::new
-        summary.add_column 'Attributes'
-        enumerateAttributes.each_with_index do |att,idx| 
-          summary.add_column idx
-        end
- 
-        att_names = ['Names']
-        enumerateAttributes.each do |att| 
-          att_names << "'#{att.name}'"
-        end
-        summary << att_names
+      # def summary
+      #   summary = Ruport::Data::Table::new
+      #   summary.add_column 'Attributes'
+      #   enumerateAttributes.each_with_index do |att,idx|
+      #     summary.add_column idx
+      #   end
 
-        att_types = ['Types']
-        enumerateAttributes.each do |att|
-          att_types << "Numeric" if att.isNumeric 
-          att_types << "Nominal" if att.isNominal
-          att_types << "Date" if att.isDate
-          att_types << "String" if att.isString
-        end
-        summary << att_types
+      #   att_names = ['Names']
+      #   enumerateAttributes.each do |att|
+      #     att_names << "'#{att.name}'"
+      #   end
+      #   summary << att_names
 
-        display = []
-        display << summary
+      #   att_types = ['Types']
+      #   enumerateAttributes.each do |att|
+      #     att_types << "Numeric" if att.isNumeric
+      #     att_types << "Nominal" if att.isNominal
+      #     att_types << "Date" if att.isDate
+      #     att_types << "String" if att.isString
+      #   end
+      #   summary << att_types
 
-        unless enumerate_instances.nil?
-          count=0
-          enumerateInstances.each {|inst| count=count+1}
-          display << "\nNumber of rows: #{count}"
-        end
-        display 
-      end
+      #   display = []
+      #   display << summary
+
+      #   unless enumerate_instances.nil?
+      #     count=0
+      #     enumerateInstances.each {|inst| count=count+1}
+      #     display << "\nNumber of rows: #{count}"
+      #   end
+      #   display
+      # end
 
       # Merges two sets of Instances together. The resulting set will have all the
       # attributes of the first set plus all the attributes of the second set. The
@@ -284,7 +284,7 @@ module Core
         att = Core::Type.create_numeric_attr(name.to_java(:string)) if attr_type == :numeric
         att = Core::Type.create_nominal_attr(name.to_java(:string),values[0]) if attr_type == :nominal
         att = Core::Type.create_date_attr(name.to_java(:string),values[0]) if attr_type == :date
-        att = att = Core::Type.create_string_attr(name.to_java(:string)) if attr_type == :string      
+        att = att = Core::Type.create_string_attr(name.to_java(:string)) if attr_type == :string
         @positions << att
       end
 
@@ -329,12 +329,12 @@ module Core
       end
 
       # Return a json String for the current Instances object
-      # The output is modeled on the 'datatable' Google charts APIs 
+      # The output is modeled on the 'datatable' Google charts APIs
       # More details at: 'https://developers.google.com/chart/interactive/docs/reference#DataTable'
       def to_json_format
         dataset_hash = Hash.new
         dataset_hash[:cols] = enumerateAttributes.collect {|attribute| attribute.name}
-        dataset_hash[:rows] = enumerateInstances.collect {|instance| instance.toString} 
+        dataset_hash[:rows] = enumerateInstances.collect {|instance| instance.toString}
         return JSON.pretty_generate(dataset_hash)
       end
     end #Instances class
@@ -354,7 +354,7 @@ module Core
   # Works with classifiers, filters, clusterers...
   class SerializationHelper
   end
-  
+
 end
 
 
