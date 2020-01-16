@@ -21,7 +21,7 @@ platforms :jruby do
   gem "bundler", ">= 1.3.5"
   gem "jeweler", "~> 1.8.4"
   gem "simplecov", ">= 0"
-  gem "cucumber"
+  gem "cucumber", '1.3.10'
   gem "rspec"
 end
 
