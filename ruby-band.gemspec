@@ -127,7 +127,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<ruport>, [">= 0"])
       s.add_runtime_dependency(%q<json>, [">= 0"])
       s.add_runtime_dependency(%q<multi_json>, [">= 0"])
-      s.add_runtime_dependency(%q<gherkin>, [">= 0"])
+      s.add_runtime_dependency(%q<gherkin>, ["~> 2.12.2"])
       s.add_runtime_dependency(%q<git>, [">= 0"])
       s.add_runtime_dependency(%q<shoulda>, [">= 0"])
       s.add_runtime_dependency(%q<test-unit>, [">= 0"])
@@ -135,7 +135,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<bundler>, [">= 1.3.5"])
       s.add_runtime_dependency(%q<jeweler>, ["~> 1.8.4"])
       s.add_runtime_dependency(%q<simplecov>, [">= 0"])
-      s.add_runtime_dependency(%q<cucumber>, [">= 0"])
+      s.add_runtime_dependency(%q<cucumber>, ["~> 1.3.10"])
       s.add_runtime_dependency(%q<rspec>, [">= 0"])
     else
       s.add_dependency(%q<atomic>, [">= 0"])
@@ -147,7 +147,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<ruport>, [">= 0"])
       s.add_dependency(%q<json>, [">= 0"])
       s.add_dependency(%q<multi_json>, [">= 0"])
-      s.add_dependency(%q<gherkin>, [">= 0"])
+      s.add_dependency(%q<gherkin>, ["~> 2.12.2"])
       s.add_dependency(%q<git>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<test-unit>, [">= 0"])
@@ -155,7 +155,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<bundler>, [">= 1.3.5"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
       s.add_dependency(%q<simplecov>, [">= 0"])
-      s.add_dependency(%q<cucumber>, [">= 0"])
+      s.add_dependency(%q<cucumber>, ["~> 1.3.10"])
       s.add_dependency(%q<rspec>, [">= 0"])
     end
   else
@@ -168,7 +168,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<ruport>, [">= 0"])
     s.add_dependency(%q<json>, [">= 0"])
     s.add_dependency(%q<multi_json>, [">= 0"])
-    s.add_dependency(%q<gherkin>, [">= 0"])
+    s.add_dependency(%q<gherkin>, ["~> 2.12.2"])
     s.add_dependency(%q<git>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<test-unit>, [">= 0"])
@@ -176,8 +176,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bundler>, [">= 1.3.5"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
     s.add_dependency(%q<simplecov>, [">= 0"])
-    s.add_dependency(%q<cucumber>, [">= 0"])
+    s.add_runtime_dependency(%q<cucumber>, ["~> 1.3.10"])
     s.add_dependency(%q<rspec>, [">= 0"])
   end
 end
-
