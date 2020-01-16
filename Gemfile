@@ -13,7 +13,7 @@ platforms :jruby do
   gem "ruport"
   gem "json"
   gem "multi_json"
-  gem "gherkin"
+  gem "gherkin", "~> 2.12.2"
   gem "git"
   gem "shoulda", ">= 0"
   gem "test-unit", ">= 0"
@@ -21,7 +21,7 @@ platforms :jruby do
   gem "bundler", ">= 1.3.5"
   gem "jeweler", "~> 1.8.4"
   gem "simplecov", ">= 0"
-  gem "cucumber", '1.3.10'
+  gem "cucumber", '~> 1.3.10'
   gem "rspec"
 end
 
