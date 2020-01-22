@@ -3,7 +3,7 @@ Feature: Creation of an in-memory dataset
 	I want to easily build it and store it in memory
 
 	Scenario: creation of a dataset
-		Given a nominal attribute, named "assertion", with values "yes,no" 
+		Given a nominal attribute, named "assertion", with values "yes,no"
 		Given one numeric attribute, named "temperature"
 		Given another numeric attribute, names "days"
 		Given two data rows: "yes,100,30","no,100,0"

@@ -1,6 +1,6 @@
 # ruby-band
 
-[![Build Status](https://travis-ci.org/arrigonialberto86/ruby-band.png?branch=master)](https://travis-ci.org/arrigonialberto86/ruby-band)
+[![Build Status](https://travis-ci.org/jiop/ruby-band.png?branch=master)](https://travis-ci.org/jiop/ruby-band)
 
 Data mining and machine learning algorithms for Ruby
 
@@ -22,7 +22,7 @@ Java classpath). Otherwise use:
 
 ### Dataset parsing
 One central datatype of ruby-band is derived from the Weka counterpart (the class Weka.core.Instances). By instantiating this class, we obtain a matrix-like structure for storing an entire dataset. Ad-hoc methods were created to guarantee that 'Instances' class objects can be converted to other datatypes (e.g. Apache matrix) and back.
-There are currently many ways to import data into ruby-band. 
+There are currently many ways to import data into ruby-band.
 ### Parsing data from ARFF/CSV files
 You can simply parse an external Weka ARFF/CSV file by doing:
 ```ruby
@@ -91,7 +91,7 @@ And into one of the two sub-categories:
 As to the namespaces used for the filters available, they can be found here:
 ```ruby
 Weka::Filter::Supervised::Attribute::my_filter.new
-Weka::Filter::Supervised::Instance::my_filter.new 
+Weka::Filter::Supervised::Instance::my_filter.new
 Weka::Filter::Unsupervised::Attribute::my_filter.new
 Weka::Filter::Unsupervised::Instance::my_filter.new
 ```
@@ -110,11 +110,11 @@ To apply a filter on a dataset we can use a very simple approach:
 ```ruby
 dataset = Core::Parser::parse_ARFF('example_file.arff')
 
-# filter instantiation 
+# filter instantiation
 filter = Weka::Filter::Supervised::Attribute::my_filter.new
 
 # input/options handling
-filter.set do 
+filter.set do
   data dataset
   filter_options '-W'
 end
@@ -126,7 +126,7 @@ to list the available options for a given filter you can use the method `filter.
 
 ## Weka attribute selection
 
-Preparing one’s data properly is a very important step for getting the best results. Reducing the number of attributes can not only help speeding up runtime with algorithms, but also help avoid “burying” the algorithm in a mass of attributes, when only a few are essential for building a good model. 
+Preparing one’s data properly is a very important step for getting the best results. Reducing the number of attributes can not only help speeding up runtime with algorithms, but also help avoid “burying” the algorithm in a mass of attributes, when only a few are essential for building a good model.
 
 There are three different types of evaluators in Weka at the moment: single attribute evaluators, attribute subset evaluators, attribute set evaluators. Most of the attribute selection schemes currently implemented are supervised, i.e., they require a dataset with a class attribute, but the usage (and the capabilities!) of each evaluator can be accessed by calling the method 'list_options' on an Evaluator (or Search) class object.
 
@@ -145,26 +145,26 @@ If we do not need to set any particular option for the evaluator and the search 
 
 ```ruby
 require 'ruby-band'
- 
+
 # Evaluator
 eval = Weka::Attribute_selection::Evaluator::CfsSubsetEval.new
- 
+
 # Search algorithm
 search = Weka::Attribute_selection::Search::GreedyStepwise.new
- 
+
 dataset = Core::Parser::parse_ARFF('weather.numeric.arff')
 ```
 
 And then we filter our dataset using a supervised filter:
 ```ruby
 filter = Weka::Filter::Supervised::Attribute::AttributeSelection.new
- 
+
 filter.set do
   evaluator eval
   search search
   data dataset
 end
- 
+
 filtered_dataset = filter.use
 ```
 The returned Instances class object stores the results of the analysis we performed on the initial data.
@@ -188,9 +188,9 @@ classifier = Weka::Classifier::Lazy::KStar::Base.new do
   set_class_index 4
 end
 ```
-we can then evaluate the trained classifier using cross-validation: 
+we can then evaluate the trained classifier using cross-validation:
 ```ruby
-classifier.cross_validate(3) # ARG is 'folds' used by cross-validation 
+classifier.cross_validate(3) # ARG is 'folds' used by cross-validation
 ```
 Alternatively, a test set can be for evaluation used by doing:
 ```ruby
@@ -216,8 +216,8 @@ unlabeled.to_ARF/to_CSV 'my_file.arff' # save dataset with inserted class values
 ##Clusterers
 
 Clustering is an unsupervised Machine Learning technique of finding patterns in the data, i.e., these algorithms work without class attributes. Classifiers, on the other hand, are supervised and need a class attribute. This section, similar to the one about classifiers, covers the following topics:
-* Building a clusterer - batch (incremental must still be implemented) learning. 
-* Evaluating a clusterer - how to evaluate a built clusterer. 
+* Building a clusterer - batch (incremental must still be implemented) learning.
+* Evaluating a clusterer - how to evaluate a built clusterer.
 * Clustering instances -  determining what clusters unknown instances belong to.
 
 Clusterers, just like classifiers, are by design batch-trainable as well. They all can be built on data that is completely stored in memory. But a small subset of the cluster algorithms can also update the internal representation incrementally (this functionality must still be implemented, along with the ‘incremental’ mode for classifiers).
@@ -270,7 +270,7 @@ In this mode Weka first ignores the class attribute and generates the clustering
 ```ruby
 # parse dataset
 dataset = Core::Parser::parse_CSV some_data.csv
- 
+
 # eliminate class values
 filter = Weka::Unsupervised::Attribute::Remove.new
 filter.set do
@@ -278,17 +278,17 @@ filter.set do
   data dataset
 end
 unlabeled_dataset = filter.use
- 
+
 # instantiate the clusterer
 clusterer = Weka::Clusterer::EM.new { set_data unlabeled_dataset}
- 
+
 # evaluate the clusterer
 puts clusterer.evaluate(dataset)
 ```
 
 ## Developers
 
-To use the library 
+To use the library
 
     require 'ruby-band'
 
