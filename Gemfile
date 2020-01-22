@@ -12,11 +12,11 @@ platforms :jruby do
   gem "jbundler", ">= 0.4.3"
   gem "json"
   gem "multi_json"
-  gem "git"
   gem "bundler", ">= 1.3.5"
   gem 'ruport', '~> 1.6.3' # To avoid  licence issue with prawn and ttfunk dependencies
 
   group :development do
+    gem "git"
     gem "jeweler", "~> 1.8.4"
     gem "rdoc", ">= 3.12"
   end
