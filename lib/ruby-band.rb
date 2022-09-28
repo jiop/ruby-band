@@ -1,19 +1,19 @@
-start = File.absolute_path '.'
-Dir.chdir(File.join(File.dirname(__FILE__),".."))
+# start = File.absolute_path '.'
+# Dir.chdir(File.join(File.dirname(__FILE__),".."))
 require 'jbundler'
 
-puts "YOLO 1"
-JBundler.install
+# puts "YOLO 1"
+# JBundler.install
 # require 'pry'
 # binding.pry
-JBundler.require_jars
+# JBundler.require_jars
 
-puts "YOLO 2"
-puts Jars.home
+# puts "YOLO 2"
+# puts Jars.home
 # require 'jar_dependencies'
 
 
-Dir.chdir start
+# Dir.chdir start
 # require File.join(File.dirname(__FILE__),'..','.jbundler','classpath.rb')
 require "java"
 
