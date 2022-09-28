@@ -9,7 +9,7 @@ platforms :jruby do
   gem "activesupport", ">= 3.2.13"
   gem "rake"
   gem "bio", ">= 1.4.2"
-  gem "jbundler", ">= 0.4.3"
+  gem "jbundler", "0.9.4"
   gem "json"
   gem "multi_json"
   gem "bundler", ">= 1.3.5"
