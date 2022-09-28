@@ -130,6 +130,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<activesupport>, [">= 3.2.13"])
   s.add_runtime_dependency(%q<rake>, [">= 0"])
   s.add_runtime_dependency(%q<bio>, [">= 1.4.2"])
+  s.add_runtime_dependency 'ruby-maven', "3.3.12"
   s.add_runtime_dependency 'jar-dependencies', "0.4.1"
   s.add_runtime_dependency(%q<jbundler>, ["0.9.4"])
   s.add_runtime_dependency(%q<ruport>, ["~> 1.6.3"])

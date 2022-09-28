@@ -13,7 +13,7 @@ puts Jars.home
 # require 'jar_dependencies'
 
 
-# Dir.chdir start
+Dir.chdir start
 # require File.join(File.dirname(__FILE__),'..','.jbundler','classpath.rb')
 require "java"
 
