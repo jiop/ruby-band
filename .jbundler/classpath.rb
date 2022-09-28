@@ -9,7 +9,6 @@ JBUNDLER_CLASSPATH << (JBUNDLER_LOCAL_REPO + '/postgresql/postgresql/9.1-901.jdb
 JBUNDLER_CLASSPATH << (JBUNDLER_LOCAL_REPO + '/junit/junit/3.8.1/junit-3.8.1.jar')
 JBUNDLER_CLASSPATH << (JBUNDLER_LOCAL_REPO + '/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar')
 JBUNDLER_CLASSPATH << (JBUNDLER_LOCAL_REPO + '/net/sf/squirrel-sql/thirdparty-non-maven/java-cup/0.11a/java-cup-0.11a.jar')
-JBUNDLER_CLASSPATH << (JBUNDLER_LOCAL_REPO + '/jline/jline/2.14.6/jline-2.14.6.jar')
 JBUNDLER_CLASSPATH << (JBUNDLER_LOCAL_REPO + '/hsqldb/hsqldb/1.8.0.7/hsqldb-1.8.0.7.jar')
 JBUNDLER_CLASSPATH << (JBUNDLER_LOCAL_REPO + '/org/sonatype/aether/aether-api/1.1/aether-api-1.1.jar')
 JBUNDLER_CLASSPATH << (JBUNDLER_LOCAL_REPO + '/org/apache/commons/commons-math3/3.0/commons-math3-3.0.jar')

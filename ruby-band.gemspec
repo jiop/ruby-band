@@ -114,72 +114,36 @@ Gem::Specification.new do |s|
   s.rubygems_version = "1.8.24"
   s.summary = "Data mining algorithms for JRuby"
 
-  if s.respond_to? :specification_version then
-    s.specification_version = 3
+  s.requirements << 'jar org.sonatype.aether:aether-api, 1.1'
+  s.requirements << 'jar nz.ac.waikato.cms.weka:weka-stable, 3.6.10'
+  s.requirements << 'jar org.apache.commons:commons-math3, 3.0'
+  s.requirements << 'jar junit:junit, 3.8.1'
+  s.requirements << 'jar mysql:mysql-connector-java, 5.1.6'
+  s.requirements << 'jar postgresql:postgresql, 9.1-901.jdbc4'
+  s.requirements << 'jar org.xerial:sqlite-jdbc, 3.7.2'
+  s.requirements << 'jar hsqldb:hsqldb, 1.8.0.7'
+  s.requirements << 'jar idb:idb, 3.26'
+  s.requirements << 'jar mckoi:mckoi, 0.93'
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<atomic>, [">= 0"])
-      s.add_runtime_dependency(%q<i18n>, [">= 0.6.1"])
-      s.add_runtime_dependency(%q<activesupport>, [">= 3.2.13"])
-      s.add_runtime_dependency(%q<rake>, [">= 0"])
-      s.add_runtime_dependency(%q<bio>, [">= 1.4.2"])
-      s.add_runtime_dependency(%q<jbundler>, ["0.9.4"])
-      s.add_runtime_dependency(%q<ruport>, ["~> 1.6.3"])
-      s.add_runtime_dependency(%q<json>, [">= 0"])
-      s.add_runtime_dependency(%q<multi_json>, [">= 0"])
-      s.add_runtime_dependency(%q<bundler>, [">= 1.3.5"])
+  s.add_runtime_dependency(%q<atomic>, [">= 0"])
+  s.add_runtime_dependency(%q<i18n>, [">= 0.6.1"])
+  s.add_runtime_dependency(%q<activesupport>, [">= 3.2.13"])
+  s.add_runtime_dependency(%q<rake>, [">= 0"])
+  s.add_runtime_dependency(%q<bio>, [">= 1.4.2"])
+  s.add_runtime_dependency 'jar-dependencies', "0.4.1"
+  s.add_runtime_dependency(%q<jbundler>, ["0.9.4"])
+  s.add_runtime_dependency(%q<ruport>, ["~> 1.6.3"])
+  s.add_runtime_dependency(%q<json>, [">= 0"])
+  s.add_runtime_dependency(%q<multi_json>, [">= 0"])
+  s.add_runtime_dependency(%q<bundler>, [">= 1.3.5"])
 
-      s.add_development_dependency(%q<git>, [">= 0"])
-      s.add_development_dependency(%q<rdoc>, [">= 3.12"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
-      s.add_development_dependency(%q<gherkin>, ["~> 2.12.2"])
-      s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<test-unit>, [">= 0"])
-      s.add_development_dependency(%q<simplecov>, [">= 0"])
-      s.add_development_dependency(%q<cucumber>, ["~> 1.3.10"])
-      s.add_development_dependency(%q<rspec>, [">= 0"])
-    else
-      s.add_dependency(%q<atomic>, [">= 0"])
-      s.add_dependency(%q<i18n>, [">= 0.6.1"])
-      s.add_dependency(%q<activesupport>, [">= 3.2.13"])
-      s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<bio>, [">= 1.4.2"])
-      s.add_dependency(%q<jbundler>, [">= 0.4.3"])
-      s.add_dependency(%q<ruport>, ["~> 1.6.3"])
-      s.add_dependency(%q<json>, [">= 0"])
-      s.add_dependency(%q<multi_json>, [">= 0"])
-      s.add_dependency(%q<bundler>, [">= 1.3.5"])
-
-      s.add_development_dependency(%q<git>, [">= 0"])
-      s.add_development_dependency(%q<rdoc>, [">= 3.12"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
-      s.add_development_dependency(%q<gherkin>, ["~> 2.12.2"])
-      s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<test-unit>, [">= 0"])
-      s.add_development_dependency(%q<simplecov>, [">= 0"])
-      s.add_development_dependency(%q<cucumber>, ["~> 1.3.10"])
-      s.add_development_dependency(%q<rspec>, [">= 0"])
-    end
-  else
-    s.add_dependency(%q<atomic>, [">= 0"])
-    s.add_dependency(%q<i18n>, [">= 0.6.1"])
-    s.add_dependency(%q<activesupport>, [">= 3.2.13"])
-    s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<bio>, [">= 1.4.2"])
-    s.add_dependency(%q<jbundler>, [">= 0.4.3"])
-    s.add_dependency(%q<ruport>, ["~> 1.6.3"])
-    s.add_dependency(%q<json>, [">= 0"])
-    s.add_dependency(%q<multi_json>, [">= 0"])
-    s.add_dependency(%q<bundler>, [">= 1.3.5"])
-
-    s.add_development_dependency(%q<git>, [">= 0"])
-    s.add_development_dependency(%q<rdoc>, [">= 3.12"])
-    s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
-    s.add_development_dependency(%q<gherkin>, ["~> 2.12.2"])
-    s.add_development_dependency(%q<shoulda>, [">= 0"])
-    s.add_development_dependency(%q<test-unit>, [">= 0"])
-    s.add_development_dependency(%q<simplecov>, [">= 0"])
-    s.add_development_dependency(%q<cucumber>, ["~> 1.3.10"])
-    s.add_development_dependency(%q<rspec>, [">= 0"])
-  end
+  s.add_development_dependency(%q<git>, [">= 0"])
+  s.add_development_dependency(%q<rdoc>, [">= 3.12"])
+  s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
+  s.add_development_dependency(%q<gherkin>, ["~> 2.12.2"])
+  s.add_development_dependency(%q<shoulda>, [">= 0"])
+  s.add_development_dependency(%q<test-unit>, [">= 0"])
+  s.add_development_dependency(%q<simplecov>, [">= 0"])
+  s.add_development_dependency(%q<cucumber>, ["~> 1.3.10"])
+  s.add_development_dependency(%q<rspec>, [">= 0"])
 end
