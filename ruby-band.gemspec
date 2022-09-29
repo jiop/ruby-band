@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "Gemfile.lock",
     "Jarfile",
     "Jarfile.lock",
+    "Jars.lock",
     "LICENSE.txt",
     "README.md",
     "README.rdoc",
