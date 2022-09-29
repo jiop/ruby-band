@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "ruby-band"
-  s.version = "0.1.13"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["arrigonialberto86"]
-  s.date = "2014-01-23"
+  s.date = "2022-09-29"
   s.description = "Data mining and machine learning algorithms for JRuby "
   s.email = "arrigonialberto86@gmail.com"
   s.executables = ["ruby-band"]
