@@ -17,9 +17,7 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   s.files = [
-    ".bundle/install.log",
     ".ruby-version",
-    ".travis.yml",
     "Gemfile",
     "Gemfile.lock",
     "Jarfile",
@@ -41,7 +39,6 @@ Gem::Specification.new do |s|
     "band_server/uploads/third_dataset.csv",
     "bin/ruby-band",
     "ext/mkrf_conf.rb",
-    "features/create_dataset.feature",
     "features/step_definitions/create_dataset.rb",
     "features/step_definitions/weka_classifiers.rb",
     "features/step_definitions/weka_clustering.rb",
@@ -53,7 +50,6 @@ Gem::Specification.new do |s|
     "features/weka_clustering.feature",
     "features/weka_filters.feature",
     "features/weka_parsers.feature",
-    "features/weka_pipeline.feature",
     "lib/ruby-band.rb",
     "lib/ruby-band/apache.rb",
     "lib/ruby-band/apache/stat/correlation.rb",
