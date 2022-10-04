@@ -16,12 +16,13 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{matrix.ruby}}
+        bundler-cache: true
       env:
         JARS_RESOLVE: true
 
