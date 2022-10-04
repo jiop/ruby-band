@@ -6,6 +6,8 @@ jobs:
   build:
     name: on ruby ${{matrix.ruby}}
     runs-on: ubuntu-latest
+    env:
+      JARS_RESOLVE: true
 
     strategy:
       fail-fast: false
@@ -20,6 +22,8 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{matrix.ruby}}
+      env:
+        JARS_RESOLVE: true
 
     - name: Install dependencies
       run: bundle install --jobs 4 --retry 3
