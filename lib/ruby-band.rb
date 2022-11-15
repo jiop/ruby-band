@@ -1,4 +1,5 @@
-require File.join(File.dirname(__FILE__),'..','.jbundler','classpath.rb')
+require 'jar-dependencies'
+Jars::require_jars_lock!
 require "java"
 require "ruby-band/core"
 require "ruby-band/weka"
