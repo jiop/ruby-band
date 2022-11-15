@@ -8,7 +8,6 @@ Gem::Specification.new do |s|
   s.description = "Data mining and machine learning algorithms for JRuby "
   s.email = "arrigonialberto86@gmail.com"
   s.executables = ["ruby-band"]
-  s.extensions = ["ext/mkrf_conf.rb"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md",
@@ -37,7 +36,6 @@ Gem::Specification.new do |s|
     "band_server/uploads/second_dataset.csv",
     "band_server/uploads/third_dataset.csv",
     "bin/ruby-band",
-    "ext/mkrf_conf.rb",
     "features/create_dataset.feature",
     "features/step_definitions/create_dataset.rb",
     "features/step_definitions/weka_classifiers.rb",
