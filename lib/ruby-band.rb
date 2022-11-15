@@ -1,5 +1,5 @@
+require File.join(File.dirname(__FILE__),'..','.jbundler','classpath.rb')
 require "java"
-require "../.jbundler/classpath"
 require "ruby-band/core"
 require "ruby-band/weka"
 require "ruby-band/apache"
