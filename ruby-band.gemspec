@@ -127,4 +127,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency(%q<simplecov>, [">= 0"])
   s.add_development_dependency(%q<cucumber>, ["~> 1.3.10"])
   s.add_development_dependency(%q<rspec>, [">= 0"])
+  s.add_development_dependency(%q<jar-dependencies>, [">= 0"])
 end
