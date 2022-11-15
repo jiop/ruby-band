@@ -17,7 +17,6 @@ platforms :jruby do
 
   group :development do
     gem "git"
-    gem "jeweler", "~> 1.8.4"
     gem "rdoc", ">= 3.12"
   end
 

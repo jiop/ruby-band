@@ -11,21 +11,6 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "ruby-band"
-  gem.homepage = "http://github.com/arrigonialberto86/ruby-band"
-  gem.license = "MIT"
-  gem.summary = %Q{Data mining algorithms for JRuby}
-  gem.description = %Q{Data mining and machine learning algorithms for JRuby }
-  gem.email = "arrigonialberto86@gmail.com"
-  gem.authors = ["arrigonialberto86"]
-  gem.extensions = ["ext/mkrf_conf.rb"]
-  # dependencies defined in Gemfile
-end
-Jeweler::RubygemsDotOrgTasks.new
-
 require 'cucumber/rake/task'
 Cucumber::Rake::Task.new(:features)
 
