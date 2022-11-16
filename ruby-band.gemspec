@@ -114,7 +114,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<activesupport>, [">= 3.2.13"])
   s.add_runtime_dependency(%q<rake>, [">= 0"])
   s.add_runtime_dependency(%q<bio>, [">= 1.4.2"])
-  s.add_runtime_dependency(%q<jbundler>, [">= 0.4.3"])
   s.add_runtime_dependency(%q<ruport>, ["~> 1.6.3"])
   s.add_runtime_dependency(%q<json>, [">= 0"])
   s.add_runtime_dependency(%q<multi_json>, [">= 0"])
@@ -128,4 +127,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency(%q<simplecov>, [">= 0"])
   s.add_development_dependency(%q<cucumber>, ["~> 1.3.10"])
   s.add_development_dependency(%q<rspec>, [">= 0"])
+  s.add_development_dependency(%q<jar-dependencies>, [">= 0"])
 end

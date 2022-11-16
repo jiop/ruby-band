@@ -1,0 +1,12 @@
+jline:jline:2.14.6:compile:
+org.sonatype.aether:aether-api:1.1:compile:
+nz.ac.waikato.cms.weka:weka-stable:3.6.10:compile:
+net.sf.squirrel-sql.thirdparty-non-maven:java-cup:0.11a:compile:
+org.apache.commons:commons-math3:3.0:compile:
+junit:junit:3.8.1:compile:
+mysql:mysql-connector-java:5.1.6:compile:
+postgresql:postgresql:9.1-901.jdbc4:compile:
+org.xerial:sqlite-jdbc:3.7.2:compile:
+hsqldb:hsqldb:1.8.0.7:compile:
+idb:idb:3.26:compile:
+mckoi:mckoi:0.93:compile:
