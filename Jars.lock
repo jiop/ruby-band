@@ -6,7 +6,7 @@ org.apache.commons:commons-math3:3.0:compile:
 junit:junit:3.8.1:compile:
 mysql:mysql-connector-java:5.1.6:compile:
 postgresql:postgresql:9.1-901.jdbc4:compile:
-org.xerial:sqlite-jdbc:3.7.2:compile:
+org.xerial:sqlite-jdbc:3.42.0.0:compile:
 hsqldb:hsqldb:1.8.0.7:compile:
 idb:idb:3.26:compile:
 mckoi:mckoi:0.93:compile:
