@@ -295,6 +295,22 @@ To use the library
 The API doc is online. For more code examples see also the test files in the
 source tree.
 
+## Update vendored jar
+
+Update Jarfile with desired version
+
+Run
+
+```
+bundle exec lock_jars -f --vendor-dir vendor/jars/
+```
+
+Then remove old jar version from vendored jars
+
+```
+rm -rf vendors/jars/...
+```
+
 ## Project home page
 
 Information on the source tree, documentation, issues and how to contribute,
@@ -313,7 +329,6 @@ If you use this software, please cite one of
 *   [Biogem: an effective tool-based approach for scaling up open source
     software development in
     bioinformatics](http://dx.doi.org/10.1093/bioinformatics/bts080)
-
 
 ## Copyright
 
