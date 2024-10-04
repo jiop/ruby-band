@@ -76,7 +76,7 @@ class Trial < Sinatra::Base
     classifier = session[:classifiers][params[:model_name]]
     fold = params[:fold].to_i
     eval = Weka::Classifier::Evaluation.new classifier.instance_eval("@dataset")
-    eval.crossValidateModel(classifier.class.new, classifier.instance_eval("@dataset"), fold.to_java(:int), Random.new(1))
+    eval.crossValidateModel(classifier.class.new, classifier.instance_eval("@dataset"), fold.to_java(:int), java.util.Random.new(1))
     eval.summary
   end
 
